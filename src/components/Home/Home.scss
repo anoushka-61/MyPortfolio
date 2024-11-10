@@ -3,7 +3,8 @@
     flex-direction: row-reverse;
     width: 100%;
     color: white;
-    padding: 50px 0px;
+    padding: 50px 0px 0px;
+    height: 100vh;
     
     &-left{
         display: flex;
@@ -12,12 +13,37 @@
         color: white;
         padding: 10px;
         justify-content: left;
-
+        
         &-header{
-            font-size: 50px;
-
+             padding-bottom: 20px;
+             font-size: 50px;
             &-span{
                 color: #850F8D;
+            }
+        }
+
+        &-designation{
+            padding-bottom: 20px;
+            font-size: 30px;
+        }
+        &-about{
+            font-size: 18px;
+        }
+
+        &-checks{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-bottom: 20px;
+
+            &-point{
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+                align-items: center;
+                &-icon{
+                   color:  #850F8D;
+                }
             }
         }
         @media (max-width: 768px) { /* Target mobile and tablet screens */
@@ -29,12 +55,29 @@
 
 
 }
-.cta-button{
-    padding: 10px;
-    border: 2px solid #850F8D;
-    width: fit-content;
+.location {
+    font-size: 1.1rem;
+    color: #666;
+  }
+.cta-button {
+    padding: 10px 20px;
+    color: #fff;
+    font-size: large;
     text-decoration: none;
-    color: #850F8D;
-    font-size: large
+    background: linear-gradient(45deg, #850F8D, #D7286A);
+    border: 2px solid transparent;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(133, 15, 141, 0.3);
+    width: fit-content;
+
+    &:hover{
+        background: linear-gradient(45deg, #D7286A, #850F8D);
+        box-shadow: 0 8px 16px rgba(133, 15, 141, 0.6);
+        text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        transform: translateY(-3px);
     
+    }
 }
+
+

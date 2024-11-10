@@ -1,0 +1,108 @@
+$dark-bg: #121212;
+$light-bg: #f4f4f4;
+$dark-text: #e0e0e0;
+$light-text: #333;
+$primary-color: #61dafb;
+$secondary-color: #264de4;
+
+.segmented-skills {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  transition: background-color 0.3s ease;
+  background-color: $light-bg;
+  color: $light-text;
+  overflow: hidden;
+
+  &.dark {
+    color: $dark-text;
+    background-color: transparent;
+  }
+
+  &.light {
+    background-color: $light-bg;
+    color: $light-text;
+  }
+}
+
+.skills-header {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: inherit;
+  
+}
+
+.skill-category {
+  width: 80%;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.category-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #51557E;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.skills-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: white;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.4s forwards ease-in-out;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  &.chip {
+    opacity: 1;
+    animation-delay: 0.1s;
+  }
+}
+
+.skill-item:hover {
+  transform: scale(1.1);
+}
+
+.skill-icon {
+  margin-right: 10px;
+}
+
+.skill-name {
+  font-size: 1rem;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-row {
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Link as ScrollLink } from 'react-scroll';
 
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState('home');
   const [scrolled, setScrolled] = useState(false);
 
-  // Handle scroll effect
+  // Handle scroll effect for sticky navbar
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -14,7 +15,29 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Set active link
+  // Handle Intersection Observer for section visibility
+  useEffect(() => {
+    const sections = document.querySelectorAll('.section'); // Ensure sections have a common class
+    const observerOptions = {
+      rootMargin: '0px 0px -50% 0px', // Trigger when 50% of the section is visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveLink(entry.target.id); // Update active link based on the section
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
+
+  // Set active link manually on nav link click
   const handleSetActiveLink = (link) => setActiveLink(link);
 
   return (
@@ -22,58 +45,67 @@ const Navbar = () => {
       <div className="container-fluid">
         {/* Brand or Logo */}
         <button
-  className="navbar-toggler custom-toggler"
-  type="button"
-  data-bs-toggle="collapse"
-  data-bs-target="#navbarNavDropdown"
-  aria-controls="navbarNavDropdown"
-  aria-expanded="false"
-  aria-label="Toggle navigation"
->
-  <span className="navbar-toggler-icon">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="30"
-      height="30"
-      fill="white" /* Set the color of lines to white */
-      className="bi bi-list"
-      viewBox="0 0 16 16"
-    >
-      <path
-        d="M2 2h12a1 1 0 0 1 0 2H2a1 1 0 0 1 0-2zm0 4h12a1 1 0 0 1 0 2H2a1 1 0 0 1 0-2zm0 4h12a1 1 0 0 1 0 2H2a1 1 0 0 1 0-2z"
-      />
-    </svg>
-  </span>
-</button>
-        
+          className="navbar-toggler custom-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="30"
+              fill="white"
+              className="bi bi-list"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M2 2h12a1 1 0 0 1 0 2H2a1 1 0 0 1 0-2zm0 4h12a1 1 0 0 1 0 2H2a1 1 0 0 1 0-2zm0 4h12a1 1 0 0 1 0 2H2a1 1 0 0 1 0-2z"
+              />
+            </svg>
+          </span>
+        </button>
+
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
-              <a
+              <ScrollLink
                 className={`nav-link ${activeLink === 'home' ? 'active' : ''}`}
                 onClick={() => handleSetActiveLink('home')}
-                href="#home"
+                to="home"
+                smooth={true}
+                duration={500}
+                offset={-50} // To ensure smooth scrolling, adjust offset if needed
               >
                 Home
-              </a>
+              </ScrollLink>
             </li>
             <li className="nav-item">
-              <a
+              <ScrollLink
                 className={`nav-link ${activeLink === 'skills' ? 'active' : ''}`}
                 onClick={() => handleSetActiveLink('skills')}
-                href="#skills"
+                to="skills"
+                smooth={true}
+                duration={500}
+                offset={-50} // Adjust offset if needed
               >
                 Skills
-              </a>
+              </ScrollLink>
             </li>
             <li className="nav-item">
-              <a
-                className={`nav-link ${activeLink === 'projects' ? 'active' : ''}`}
-                onClick={() => handleSetActiveLink('projects')}
-                href="#projects"
+              <ScrollLink
+                className={`nav-link ${activeLink === 'experience' ? 'active' : ''}`}
+                onClick={() => handleSetActiveLink('experience')}
+                to="experience"
+                smooth={true}
+                duration={500}
+                offset={-50} // Adjust offset if needed
               >
                 Experience
-              </a>
+              </ScrollLink>
             </li>
             <li className="nav-item">
               <a
@@ -82,15 +114,6 @@ const Navbar = () => {
                 href="#education"
               >
                 Education
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                className={`nav-link ${activeLink === 'awards' ? 'active' : ''}`}
-                onClick={() => handleSetActiveLink('awards')}
-                href="#awards"
-              >
-                Awards
               </a>
             </li>
           </ul>

@@ -1,14 +1,32 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './styles/styles.scss'; 
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
+import Skills from './components/Skills/Skills';
+import Experience from './components/Experience/Experience';
+// import Education from './components/Education/Education';
 
 function App() {
   return (
-    <div className="App">
-     <Navbar/>
-      <Home/>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          {/* Only one route, because we're handling scrolling via react-scroll */}
+          <Route path="/" element={
+            <>
+              <Home />
+              <Skills />
+              <Experience />
+              
+              {/* <Experience />
+              <Education /> */}
+            </>
+          } />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
