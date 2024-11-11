@@ -1,10 +1,10 @@
 .home{
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     width: 100%;
     color: white;
     padding: 50px 0px 0px;
-    height: 100vh;
+    height: 100%;
     
     &-left{
         display: flex;
@@ -25,6 +25,7 @@
         &-designation{
             padding-bottom: 20px;
             font-size: 30px;
+            
         }
         &-about{
             font-size: 18px;
@@ -49,10 +50,23 @@
         @media (max-width: 768px) { /* Target mobile and tablet screens */
             width: 100%;
             padding: 20px; 
+
         }
        
     }
-
+    &-right {
+        width: 40%; /* Allocate space to display image */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+       
+    }
+ @media (max-width: 768px) { /* Target mobile and tablet screens */
+    display: flex;
+    flex-direction: column;
+            
+        }
 
 }
 .location {
@@ -80,4 +94,9 @@
     }
 }
 
-
+.home-right img {
+    width: 100%;
+    height: auto; /* Maintains aspect ratio */
+    object-fit: cover; /* Ensures image fills container without distortion */
+    border-radius: 8px; /* Optional, adds rounded corners */
+  }

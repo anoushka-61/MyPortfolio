@@ -5,7 +5,9 @@ import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 import Skills from './components/Skills/Skills';
 import Experience from './components/Experience/Experience';
-// import Education from './components/Education/Education';
+import Education from './components/Education/Education';
+import Contact from './components/Contact/Contact';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -19,9 +21,9 @@ function App() {
               <Home />
               <Skills />
               <Experience />
-              
-              {/* <Experience />
-              <Education /> */}
+              <Education />
+              <Contact/>
+              <Footer/>
             </>
           } />
         </Routes>

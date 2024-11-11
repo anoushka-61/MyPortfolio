@@ -28,7 +28,9 @@ const Home = () => {
   return (
     <div id="home" className="section container-sm">
       <div className="row home">
-      
+      <div className="col-md-6 col-12 home-right">
+        <img src={require('../../styles/istockphoto-1342829261-612x612.jpg')} alt="Your Description" />
+        </div>
         <div className="col-md-6 col-12 home-left">
           <h1 className="home-left-header">
             Hi, I'M <span className="home-left-header-span">Anoushka Srivastava</span>
@@ -58,9 +60,7 @@ const Home = () => {
             View My Resume
           </a>
         </div>
-        <div className="col-md-6 col-12 home-right">
-         
-        </div>
+        
       </div>
     </div>
   );

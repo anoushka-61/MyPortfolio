@@ -19,7 +19,7 @@ const Navbar = () => {
   useEffect(() => {
     const sections = document.querySelectorAll('.section'); // Ensure sections have a common class
     const observerOptions = {
-      rootMargin: '0px 0px -50% 0px', // Trigger when 50% of the section is visible
+      rootMargin: '0px 0px -15% 0px', // Trigger when 50% of the section is visible
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -108,13 +108,16 @@ const Navbar = () => {
               </ScrollLink>
             </li>
             <li className="nav-item">
-              <a
+              <ScrollLink
                 className={`nav-link ${activeLink === 'education' ? 'active' : ''}`}
                 onClick={() => handleSetActiveLink('education')}
-                href="#education"
+                to="education"
+                smooth={true}
+                duration={500}
+                offset={-50}
               >
                 Education
-              </a>
+              </ScrollLink>
             </li>
           </ul>
         </div>
@@ -127,7 +130,14 @@ const Navbar = () => {
 
         {/* Connect Button with margin */}
         <button type="button" className="btn btn-dark ms-auto navbar-button" aria-label="Connect with me">
+        <ScrollLink
+                to="connect"
+                smooth={true}
+                duration={500}
+                offset={-50}
+              >
           Let's Connect
+          </ScrollLink>
         </button>
       </div>
     </nav>

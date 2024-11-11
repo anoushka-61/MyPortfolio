@@ -1,0 +1,120 @@
+/* Contact Form Container */
+
+.contact{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: white;
+    padding: 50px 0px 0px;
+    height: 100vh;
+}
+.contact-form-container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #111;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin: 0px 0px !important;
+  }
+  .contact-section{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding: 40px;
+  
+  }
+  
+  /* Form Styling */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  
+  /* Input and Textarea styles */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+  
+  .form-group label {
+    font-size: 1rem;
+    color: #ccc;
+    font-weight: 500;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background-color: #222;
+    color: #fff;
+    font-size: 1rem;
+    transition: border 0.3s ease;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Success and Error messages */
+  .success-message,
+  .error-message {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  
+  .success-message {
+    color: #28a745;
+  }
+  
+  .error-message {
+    color: #dc3545;
+  }
+  
+  /* Button styles */
+  .submit-button {
+    padding: 14px 24px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+  .submit-button:disabled {
+    background-color: #444;
+    cursor: not-allowed;
+  }
+  
+  @media (max-width: 768px) {
+    .contact-form-container {
+      padding: 20px;
+      padding: 20px;
+      width: 100%;
+      margin-top: 25px !important;
+    }
+    .contact-section{
+        display: flex;
+        flex-direction: column;
+    }
+  }
+  

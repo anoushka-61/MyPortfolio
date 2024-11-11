@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { FaReact, FaJava, FaCuttlefish, FaNodeJs, FaDatabase, FaGitAlt, FaGit } from 'react-icons/fa';
-import { IoIosGitBranch } from 'react-icons/io';
+import { FaReact, FaJava, FaCuttlefish, FaNodeJs, FaDatabase, FaGitAlt,FaCss3 } from 'react-icons/fa';
+import { IoIosGitBranch} from 'react-icons/io';
 import { DiSass, DiJavascript1, DiHtml5 } from 'react-icons/di';
+import { IoBulbOutline } from "react-icons/io5";
 
 
 const skillsData = {
@@ -12,9 +13,9 @@ const skillsData = {
     { icon: <FaReact />, name: 'TypeScript', color: '#007acc' },
   ],
   "Frontend Development": [
-    { icon: <FaReact />, name: 'React', color: '#61dafb' },
+    { icon: <FaReact />, name: 'React', color: '#0D92F4' },
     { icon: <DiHtml5 />, name: 'HTML', color: '#e34f26' },
-    { icon: <FaGit />, name: 'CSS', color: '#264de4' },
+    { icon:<FaCss3 />, name: 'CSS', color: '#264de4' },
     { icon: <DiSass />, name: 'SASS', color: '#CC6699' },
   ],
   "Backend Development": [
@@ -29,22 +30,22 @@ const skillsData = {
     { icon: <IoIosGitBranch />, name: 'Bitbucket', color: '#205081' },
   ],
   "Soft Skills": [
-    { icon: <FaReact />, name: 'Leadership', color: '#61dafb' },
-    { icon: <FaReact />, name: 'Communication', color: '#61dafb' },
-    { icon: <FaReact />, name: 'Problem Solving', color: '#61dafb' },
+    { icon: <IoBulbOutline />, name: 'Leadership', color: '#0D92F4' },
+    { icon: <IoBulbOutline />, name: 'Communication', color: '#0D92F4' },
+    { icon: <IoBulbOutline />, name: 'Problem Solving', color: '#0D92F4' },
   ],
 };
 
 const SegmentedSkills = () => {
   const [visibleRows, setVisibleRows] = useState([]);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   // Check system theme preference for dark mode
-  useEffect(() => {
-    const theme = window.matchMedia('(prefers-color-scheme: dark)');
-    setIsDarkMode(theme.matches);
-    theme.addEventListener('change', (e) => setIsDarkMode(e.matches));
-  }, []);
+  // useEffect(() => {
+  //   const theme = window.matchMedia('(prefers-color-scheme: dark)');
+  //   setIsDarkMode(theme.matches);
+  //   theme.addEventListener('change', (e) => setIsDarkMode(e.matches));
+  // }, []);
 
   // Intersection Observer setup to detect when rows are in view or out of view
   const observer = new IntersectionObserver((entries) => {
