@@ -38,7 +38,7 @@ const skillsData = {
 
 const SegmentedSkills = () => {
   const [visibleRows, setVisibleRows] = useState([]);
-  const [isDarkMode, setIsDarkMode] = useState(true);
+
 
   // Check system theme preference for dark mode
   // useEffect(() => {
@@ -74,10 +74,10 @@ const SegmentedSkills = () => {
     return () => {
       rows.forEach(row => observer.unobserve(row));
     };
-  }, []);
+  }, [observer]);
 
   return (
-    <div id="skills" className={`section segmented-skills ${isDarkMode ? 'dark' : 'light'}`}>
+    <div id="skills" className={`section segmented-skills `}>
       <h1 className="skills-header text-center display-4 mb-4">Skills</h1>
 
       {Object.keys(skillsData).map((category, index) => (
