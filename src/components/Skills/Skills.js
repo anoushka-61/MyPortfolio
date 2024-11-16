@@ -74,7 +74,7 @@ const Skills = () => {
     return () => {
       rows.forEach(row => observer.unobserve(row));
     };
-  }, [observer]);
+  }, []);
 
   return (
     <div id="skills" className={`section segmented-skills dark `}>
