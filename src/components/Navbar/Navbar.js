@@ -124,8 +124,8 @@ const Navbar = () => {
 
         {/* Social Media Links */}
         <div className="navbar-social d-flex align-items-center">
-          <SocialIcon href="https://linkedin.com/in/yourprofile" icon="fab fa-linkedin" />
-          <SocialIcon href="https://github.com/yourprofile" icon="fab fa-github" />
+          <SocialIcon href="https://www.linkedin.com/in/anoushka-srivastava-11b327121/" icon="fab fa-linkedin" />
+          <SocialIcon href="https://github.com/anoushka-61" icon="fab fa-github" />
         </div>
 
         {/* Connect Button with margin */}

@@ -12,10 +12,9 @@ const Contact = () => {
     const [errorMessage, setErrorMessage] = useState('');
 
   // Replace with your actual EmailJS service ID, template ID, and user ID
-  const serviceID = 'service_6r8n89s';
-  const templateID = 'template_i08omsr';
-  const userID = 'oT2jZq2doJwJePdmH';
-
+  const serviceID = `${process.env.REACT_APP_SERVICEID}`;
+  const templateID = `${process.env.REACT_APP_TEMPLATEID}`;
+  const userID = `${process.env.REACT_APP_USERID}`;
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);  // Set to true while sending email
