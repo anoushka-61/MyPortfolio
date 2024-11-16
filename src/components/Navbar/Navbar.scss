@@ -49,7 +49,9 @@
             0 0 50px #D500D1;  /* Maximum golden glow */
        
     }
-    
+    .nav-item{
+        cursor: pointer;
+    }
     .navbar-social {
         width: fit-content;
         justify-content: space-around;
