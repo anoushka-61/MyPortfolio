@@ -36,7 +36,7 @@ const skillsData = {
   ],
 };
 
-const SegmentedSkills = () => {
+const Skills = () => {
   const [visibleRows, setVisibleRows] = useState([]);
 
 
@@ -77,7 +77,7 @@ const SegmentedSkills = () => {
   }, [observer]);
 
   return (
-    <div id="skills" className={`section segmented-skills `}>
+    <div id="skills" className={`section segmented-skills dark `}>
       <h1 className="skills-header text-center display-4 mb-4">Skills</h1>
 
       {Object.keys(skillsData).map((category, index) => (
@@ -109,4 +109,4 @@ const SegmentedSkills = () => {
   );
 };
 
-export default SegmentedSkills;
+export default Skills;
