@@ -21,7 +21,7 @@ function App() {
         <Navbar />
         <Routes>
           {/* Only one route, because we're handling scrolling via react-scroll */}
-          <Route path="/" element={
+          <Route exact path="/" element={
             <>
               <Home />
               <Skills />
