@@ -51,7 +51,7 @@ const Contact = () => {
   };
 
   return (
-    <div id="connect" className="contact">
+    <div id="connect" className="section contact">
       <h1 className="skills-header text-center display-4 mb-4">Let's Connect</h1>
       <div className='contact-section' >
       <div className="contact-info">

@@ -36,7 +36,7 @@ const Navbar = () => {
       sections.forEach((section) => observer.unobserve(section));
     };
   }, []);
-
+console.log({activeLink})
   // Set active link manually on nav link click
   const handleSetActiveLink = (link) => setActiveLink(link);
 
@@ -135,6 +135,7 @@ const Navbar = () => {
                 smooth={true}
                 duration={500}
                 offset={-50}
+                onClick={() => handleSetActiveLink('connect')}
               >
           Let's Connect
           </ScrollLink>

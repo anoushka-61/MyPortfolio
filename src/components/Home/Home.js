@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from "framer-motion";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import Achievements from './Achievments';
+
 
 const Home = () => {
   const [text, setText] = useState('');
@@ -28,39 +32,83 @@ const Home = () => {
   return (
     <div id="home" className="section container-sm">
       <div className="row home">
-      <div className="col-md-6 col-12 home-right">
-        <img src={require('../../styles/istockphoto-1342829261-612x612.jpg')} alt="Your Description" />
-        </div>
-        <div className="col-md-6 col-12 home-left">
+        {/* Image comes from the left */}
+        <motion.div
+          className="col-md-6 col-12 home-right"
+          initial={{ x: -100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <img
+            src={require("../../styles/istockphoto-1342829261-612x612.jpg")}
+            alt="Your Description"
+           
+          />
+
+         <Achievements/>
+
+        </motion.div>
+
+        {/* Text content comes from the right */}
+        <motion.div
+          className="col-md-6 col-12 home-left"
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <h1 className="home-left-header">
-            Hi, I'M <span className="home-left-header-span">Anoushka Srivastava</span>
+            Hi, I'M{" "}
+            <span className="home-left-header-span">Anoushka Srivastava</span>
           </h1>
 
-          <h4 className="home-left-designation">{text}
-          <br />
-          <span className="location">  <i className="fas fa-map-marker-alt"></i> Mumbai,India</span>
+          <h4 className="home-left-designation">
+            {text}
+            <br />
+            <span className="location">
+              <FaMapMarkerAlt /> Mumbai, India
+            </span>
           </h4>
 
           <p className="home-left-designation-about">
-            Welcome to my digital playground! I'm a frontend developer who believes in the magic of code. 
-            My mission? To turn your wildest web dreams into reality, one line of JavaScript at a time.
-
+            Welcome to my digital playground! I'm a frontend developer who
+            believes in the magic of code. My mission? To turn your wildest web
+            dreams into reality, one line of JavaScript at a time.
           </p>
+
           <p className="home-left-designation-about">
-         I have  experience in React.js, Redux, and agile tools like Jira. Strong in communication, leadership, and delivering efficient, user-friendly web application.
+            I have experience in React.js, Redux, and agile tools like Jira.
+            Strong in communication, leadership, and delivering efficient,
+            user-friendly web applications.
           </p>
 
           <div className="home-left-checks">
-          <div className='home-left-checks-point'><i className="far fa-calendar-check home-left-checks-point-icon"></i> Open for exciting opportunities in React Development, Frontend Development.</div>
-          <div className='home-left-checks-point'><i className="far fa-lightbulb home-left-checks-point-icon"></i> Passionate about writing clean code,system design, tackling complex challenges, learning new technologies, and making a significant impact.</div>
-
+            <div className="home-left-checks-point">
+              <i className="far fa-calendar-check home-left-checks-point-icon"></i>{" "}
+              Open for exciting opportunities in React Development, Frontend
+              Development.
+            </div>
+            <div className="home-left-checks-point">
+              <i className="far fa-lightbulb home-left-checks-point-icon"></i>{" "}
+              Passionate about writing clean code, system design, tackling
+              complex challenges, learning new technologies, and making a
+              significant impact.
+            </div>
           </div>
+          <div className="home-left-achievements">
 
-          <a href="https://drive.google.com/file/d/10VTnlmRQa04WrJMSfZW4IRFmUPEWS4f3/view?usp=sharing" className="cta-button" target="_blank" rel="noopener noreferrer">
+
+</div>
+
+        
+          <a
+            href="https://drive.google.com/file/d/10VTnlmRQa04WrJMSfZW4IRFmUPEWS4f3/view?usp=sharing"
+            className="cta-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             View My Resume
           </a>
-        </div>
-        
+        </motion.div>
       </div>
     </div>
   );

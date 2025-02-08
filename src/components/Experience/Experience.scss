@@ -95,10 +95,12 @@ body {
     will-change: transform;
 
   
-    &:hover {
-      transform: rotateY(180deg);
-    }
+    
   }
+  .experience-card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
   
   .card-front,
   .card-back {
@@ -217,3 +219,41 @@ body {
     border-top: 2px solid darkslategray;
     border-bottom: 2px solid darkslategray;
 }
+.flip-prompt:hover .icon {
+  transform: rotate(360deg);
+  transition: transform 0.5s;
+}
+.back-button {
+  display: flex
+  ;
+      align-items: flex-end;
+      gap: 8px;
+      padding: 2px;
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      font-size: 12px;
+      color: white;
+      font-weight: 500;
+      cursor: pointer;
+      /* transition: all 0.3s ease-in-out; */
+      width: 30px;
+      height: 30px;
+      margin-bottom: 5px;
+      justify-content: center;
+
+}
+
+.back-arrow {
+  font-size: 1.2rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+.back-button:hover .back-arrow {
+  transform: translateX(-5px); /* Moves arrow left smoothly */
+}
+
