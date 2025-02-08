@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import './styles/styles.scss'; 
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
@@ -11,7 +11,7 @@ import Footer from './components/Footer/Footer';
 
 function App() {
   return (
-    <Router basename="/MyPortfolio"
+    <Router 
      future={{
     v7_startTransition: true,
     v7_relativeSplatPath: true,
