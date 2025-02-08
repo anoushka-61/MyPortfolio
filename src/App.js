@@ -11,12 +11,12 @@ import Footer from './components/Footer/Footer';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/MyPortfolio">
       <div className="App">
         <Navbar />
         <Routes>
           {/* Only one route, because we're handling scrolling via react-scroll */}
-          <Route path="/MyPortfolio" element={
+          <Route path="/" element={
             <>
               <Home />
               <Skills />
