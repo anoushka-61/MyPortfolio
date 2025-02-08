@@ -11,7 +11,12 @@ import Footer from './components/Footer/Footer';
 
 function App() {
   return (
-    <Router basename="/MyPortfolio">
+    <Router basename="/MyPortfolio"
+     future={{
+    v7_startTransition: true,
+    v7_relativeSplatPath: true,
+  }}
+    >
       <div className="App">
         <Navbar />
         <Routes>
