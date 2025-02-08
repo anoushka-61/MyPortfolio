@@ -56,7 +56,7 @@ const Home = () => {
 
           </div>
 
-          <a href="https://drive.google.com/file/d/1nvjribeqIjQQWfYhZh9_xwdPO2TAuiKN/view?usp=sharing" className="cta-button" target="_blank" rel="noopener noreferrer">
+          <a href="https://drive.google.com/file/d/10VTnlmRQa04WrJMSfZW4IRFmUPEWS4f3/view?usp=sharing" className="cta-button" target="_blank" rel="noopener noreferrer">
             View My Resume
           </a>
         </div>
