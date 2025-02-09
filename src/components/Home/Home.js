@@ -1,33 +1,76 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import Achievements from './Achievments';
-
+import Achievements from "./Achievments";
+import dayjs from "dayjs";
 
 const Home = () => {
-  const [text, setText] = useState('');
-  const phrase = "Frontend Developer";
-  const typingSpeed = 100;
+  const titles = ["Frontend Developer", "Software Engineer"];
+  const typingSpeed = 100; // Speed for typing effect
+  const deletingSpeed = 50; // Speed for deleting effect
+  const pauseDuration = 1000; // Pause before deleting text
+
+  const [text, setText] = useState("");
+  const [titleIndex, setTitleIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [cursor, setCursor] = useState("|");
+  const [experience, setExperience] = useState("");
+  const [years , setYears]= useState("");
 
   useEffect(() => {
-    let index = -1;
+    let index = text.length;
+    let currentTitle = titles[titleIndex];
 
-    // Reset text at the start
-    setText('');
-    
-    const intervalId = setInterval(() => {
-      index++;
-      setText((prevText) => prevText + phrase[index]);
-
-      // Clear interval when finished typing the phrase
-      if (index === phrase.length - 1) {
-        clearInterval(intervalId);
+    const handleTyping = () => {
+      if (!isDeleting) {
+        if (index < currentTitle.length) {
+          setText(currentTitle.substring(0, index + 1));
+        } else {
+          setTimeout(() => setIsDeleting(true), pauseDuration);
+        }
+      } else {
+        if (index > 0) {
+          setText(currentTitle.substring(0, index - 1));
+        } else {
+          setIsDeleting(false);
+          setTitleIndex((prevIndex) => (prevIndex + 1) % titles.length);
+        }
       }
-    }, typingSpeed);
+    };
 
-    // Cleanup interval on unmount
-    return () => clearInterval(intervalId);
+    const interval = setTimeout(handleTyping, isDeleting ? deletingSpeed : typingSpeed);
+
+    return () => clearTimeout(interval);
+  }, [text, isDeleting, titleIndex]);
+
+  useEffect(() => {
+    // Blinking cursor effect
+    const cursorInterval = setInterval(() => {
+      setCursor((prev) => (prev === "|" ? "" : "|"));
+    }, 500);
+
+    return () => clearInterval(cursorInterval);
   }, []);
+
+  useEffect(() => {
+    // Calculate experience dynamically
+    const startDate = dayjs("2023-07-17"); // Set your actual start date here
+    const today = dayjs();
+    const diffMonths = today.diff(startDate, "month");
+    const calculatedYears = Math.floor(diffMonths / 12);
+    const months = diffMonths % 12;
+  
+    setYears(calculatedYears);
+  
+    let experienceString = `${calculatedYears} year${calculatedYears !== 1 ? "s" : ""}`;
+  
+    if (months > 0) {
+      experienceString += ` ${months+1} month${months !== 1 ? "s" : ""}`;
+    }
+  
+    setExperience(experienceString);
+  }, []);
+  
 
   return (
     <div id="home" className="section container-sm">
@@ -42,11 +85,8 @@ const Home = () => {
           <img
             src={require("../../styles/istockphoto-1342829261-612x612.jpg")}
             alt="Your Description"
-           
           />
-
-         <Achievements/>
-
+          <Achievements />
         </motion.div>
 
         {/* Text content comes from the right */}
@@ -57,16 +97,19 @@ const Home = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <h1 className="home-left-header">
-            Hi, I'M{" "}
+            Hi, I'm{"  "}
             <span className="home-left-header-span">Anoushka Srivastava</span>
           </h1>
 
           <h4 className="home-left-designation">
             {text}
+            {cursor}
             <br />
             <span className="location">
               <FaMapMarkerAlt /> Mumbai, India
             </span>
+            <br />
+            <span className="experience-text"> {years < 1 ? "🌱" : years < 3 ? "🚀" : "🔥"} {experience} of experience</span>
           </h4>
 
           <p className="home-left-designation-about">
@@ -94,12 +137,7 @@ const Home = () => {
               significant impact.
             </div>
           </div>
-          <div className="home-left-achievements">
 
-
-</div>
-
-        
           <a
             href="https://drive.google.com/file/d/10VTnlmRQa04WrJMSfZW4IRFmUPEWS4f3/view?usp=sharing"
             className="cta-button"

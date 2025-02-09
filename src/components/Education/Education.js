@@ -3,44 +3,31 @@ import { FaGraduationCap, FaStar, FaClipboardList, FaUniversity } from 'react-ic
 
 const Education = () => {
     const [text, setText] = useState(''); // State for the typed text
-    const [cursor, setCursor] = useState('|'); // State for cursor
+    // const [cursor, setCursor] = useState('|'); // State for cursor
     const degree = "Bachelor of Technology in Computer Science"; // Text to type
   
     useEffect(() => {
       let index = -1;
-      let isDeleting = false; // Flag to track whether the text is being deleted
+      setText(''); // Reset text at the start
+    
       const typingInterval = setInterval(() => {
-        if (!isDeleting) {
-          // Typing effect
-          index++;
-          setText((prev) => prev + degree[index]);
-          
-          if (index === degree.length-1) {
-            // Once full text is typed, start deleting
-            isDeleting = true;
-          }
-        } else {
-          // Deleting effect
-          index--;
-          setText((prev) => prev.slice(0, prev.length - 1)); // Remove last character
-          
-          if (index === -1) {
-            // Once text is fully deleted, restart typing
-            isDeleting = false;
-          }
+        index++;
+        setText((prevText) => prevText + degree[index]);
+       
+    
+        if (index === degree.length-1) {
+          clearInterval(typingInterval);
         }
-      }, 150); // Speed of typing (in milliseconds)
-  
-      const cursorBlinkInterval = setInterval(() => {
-        setCursor((prevCursor) => (prevCursor === '|' ? '' : '|')); // Toggle cursor visibility
-      }, 500); // Cursor blink interval
-  
-      // Clean up intervals on component unmount
+      }, 100);
+    
+     
+    
       return () => {
         clearInterval(typingInterval);
-        clearInterval(cursorBlinkInterval);
+       
       };
-    }, []); 
+    }, []); // Added 'degree' as a dependency for safety
+    
   return (
     <div id="education" className="section education">
      <h1 className="skills-header text-center display-4 mb-4">Education</h1>
@@ -50,7 +37,7 @@ const Education = () => {
             <div className="card shadow-sm border-light mb-4">
               <div className="card-body">
                 <h5 className="card-title cursor-effect">
-                  <FaGraduationCap /> {text}{cursor}
+                  <FaGraduationCap /> {text}
                 </h5>
                 <h6 className="card-subtitle mb-3 d-flex flex-row justifiy-content-center w-100 gap-2"> <FaUniversity />Amity University, Haryana</h6>
                 <p className="card-text">

@@ -56,7 +56,7 @@ const Contact = () => {
       <div className='contact-section' >
       <div className="contact-info">
       <h2><FaEnvelope className="contact-icon" /> Get in Touch</h2>
-      <p><FaPhoneAlt className="contact-icon" /> Feel free to send us a message. We'd love to hear from you!</p>
+      <p><FaPhoneAlt className="contact-icon" /> Feel free to reach out. I'd love to connect with you!</p>
       <div className="contact-details">
         <div className="contact-item">
           <FaEnvelope className="contact-icon" /> {/* Email Icon */}
@@ -108,7 +108,7 @@ const Contact = () => {
         </div>
         {successMessage && <div className="alert alert-success" role="alert">{successMessage}</div>}
         {errorMessage && <div className="alert alert-danger" role="alert">{errorMessage}</div>}
-        <button type="submit" disabled={isSubmitting} className="submit-button">
+        <button type="submit" disabled={isSubmitting} className="cta-button">
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </button>
       </form>

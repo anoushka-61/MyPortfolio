@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 const Footer = () => {
   return (
-    <div className='Footer'> Made with Love by Anoushka Srivastava</div>
-  )
-}
+    <footer className="Footer">
+      © {new Date().getFullYear()} Anoushka Srivastava. All rights reserved.
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;

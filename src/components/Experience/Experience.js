@@ -70,7 +70,9 @@ const Experience = () => {
   const handleFlip = (index) => {
     setFlippedIndex(flippedIndex === index ? null : index); // Toggle flip on click
   };
-
+const formattedDate = (date)=>{
+  return new Date(date).toLocaleString('en-US', { month: 'short', year: 'numeric' });
+}
   return (
     <div id="experience" className="section experience">
       <h1 className="skills-header text-center display-4 mb-4">Experience</h1>
@@ -92,7 +94,7 @@ const Experience = () => {
                 <div className="experience-header">
                   <h3 className="experience-header-position">{experience.position}</h3>
                   <p className="experience-header-company">
-                    {experience.company} · {experience.startDate} - {experience.endDate ? experience.endDate : "Present"}
+                    {experience.company} · {formattedDate(experience.startDate)} - {experience.endDate ? formattedDate(experience.endDate) : "Present"}
                   </p>
                   <span className="experience-header-location">
                     <i className="fas fa-map-marker-alt"></i> {experience.location}
