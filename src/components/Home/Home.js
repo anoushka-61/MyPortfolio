@@ -139,7 +139,7 @@ const Home = () => {
           </div>
 
           <a
-            href="https://drive.google.com/file/d/10VTnlmRQa04WrJMSfZW4IRFmUPEWS4f3/view?usp=sharing"
+            href="https://drive.google.com/file/d/1mI7_XAThUEq7DAG_LjrpmvkwzMjhcADf/view?usp=drive_link"
             className="cta-button"
             target="_blank"
             rel="noopener noreferrer"
