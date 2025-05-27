@@ -41,7 +41,7 @@ const Education = () => {
                 </h5>
                 <h6 className="card-subtitle mb-3 d-flex flex-row justifiy-content-center w-100 gap-2"> <FaUniversity />Amity University, Haryana</h6>
                 <p className="card-text">
-                  <strong>Duration:</strong> 2018 - 2022
+                  <strong>Duration:</strong> 2019 - 2023
                 </p>
                 <p className="card-text">
                   <strong>Grade:</strong> 8.62 (CGPA) <FaStar className="text-warning" />
